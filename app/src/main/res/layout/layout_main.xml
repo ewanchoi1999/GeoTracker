@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root"
+    tools:context=".MainActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        map:uiZoomControls="true"
+        map:uiRotateGestures="true"
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <FrameLayout
+        android:id="@+id/flFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pause_btn"
+        app:layout_constraintBottom_toTopOf="@+id/new_workout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Pause Workout"
+        android:layout_marginBottom="5dp"
+        android:visibility="gone"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="8dp"
+        android:text="New Workout"
+        android:id="@+id/new_workout"
+    />
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:itemIconSize="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_bar"/>
+
+    <LinearLayout
+        android:id="@+id/container1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:padding="8dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11">
+
+    <Chronometer
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="00:00"
+        android:visibility="gone" />
+</LinearLayout>
+
+<LinearLayout
+android:id="@+id/container2"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:background="#FFFFFF"
+android:padding="8dp"
+    android:visibility="gone"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintStart_toEndOf="@+id/container1"
+app:layout_constraintEnd_toStartOf="@+id/container3"
+app:layout_constraintHorizontal_bias="0.5">
+
+<TextView
+    android:id="@+id/distance"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="15sp"
+    android:text="0.0m"
+    android:textColor="@color/black"
+    android:visibility="gone" />
+</LinearLayout>
+
+<LinearLayout
+android:id="@+id/container3"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:background="#FFFFFF"
+android:padding="8dp"
+    android:visibility="gone"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintStart_toEndOf="@+id/container2"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.62">
+
+<TextView
+    android:id="@+id/pace"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="0.00min/km"
+    android:textColor="@color/black"
+    android:textSize="15sp"
+    android:visibility="gone" />
+</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
